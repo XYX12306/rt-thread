@@ -74,10 +74,12 @@
         <file category="header" name="ra/fsp/inc/api/r_ioport_api.h" path=""/>
         <file category="header" name="ra/fsp/inc/api/r_transfer_api.h" path=""/>
         <file category="header" name="ra/fsp/inc/api/r_uart_api.h" path=""/>
+        <file category="header" name="ra/fsp/inc/api/r_wdt_api.h" path=""/>
         <file category="header" name="ra/fsp/inc/fsp_features.h" path=""/>
         <file category="header" name="ra/fsp/inc/fsp_version.h" path=""/>
         <file category="header" name="ra/fsp/inc/instances/r_ioport.h" path=""/>
         <file category="header" name="ra/fsp/inc/instances/r_sci_uart.h" path=""/>
+        <file category="header" name="ra/fsp/inc/instances/r_wdt.h" path=""/>
         <file category="header" name="ra/fsp/src/bsp/cmsis/Device/RENESAS/Include/R7FA6E2BB.h" path=""/>
         <file category="header" name="ra/fsp/src/bsp/cmsis/Device/RENESAS/Include/renesas.h" path=""/>
         <file category="header" name="ra/fsp/src/bsp/cmsis/Device/RENESAS/Include/system.h" path=""/>
@@ -137,6 +139,7 @@
         <file category="other" name="ra/fsp/src/r_ioport/r_ioport.o"/>
         <file category="source" name="ra/fsp/src/r_sci_uart/r_sci_uart.c"/>
         <file category="other" name="ra/fsp/src/r_sci_uart/r_sci_uart.o"/>
+        <file category="source" name="ra/fsp/src/r_wdt/r_wdt.c"/>
         <file category="other" name="ra/SConscript"/>
       </files>
     </component>
@@ -152,6 +155,7 @@
         <file category="header" name="ra_cfg/fsp_cfg/bsp/bsp_pin_cfg.h" path=""/>
         <file category="header" name="ra_cfg/fsp_cfg/r_ioport_cfg.h" path=""/>
         <file category="header" name="ra_cfg/fsp_cfg/r_sci_uart_cfg.h" path=""/>
+        <file category="header" name="ra_cfg/fsp_cfg/r_wdt_cfg.h" path=""/>
         <file category="other" name="ra_cfg/SConscript"/>
       </files>
     </component>

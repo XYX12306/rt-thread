@@ -91,6 +91,7 @@
 #define RT_USING_SERIAL
 #define RT_USING_SERIAL_V2
 #define RT_SERIAL_USING_DMA
+#define RT_USING_WDT
 #define RT_USING_PIN
 /* end of Device Drivers */
 
@@ -264,6 +265,9 @@
 
 /* samples: kernel and components samples */
 
+#define PKG_USING_PERIPHERAL_SAMPLES
+#define PKG_USING_PERIPHERAL_SAMPLES_LATEST_VERSION
+#define PERIPHERAL_SAMPLES_USING_IWDG
 /* end of samples: kernel and components samples */
 
 /* entertainment: terminal games and other interesting software packages */
@@ -331,6 +335,7 @@
 /* On-chip Peripheral Drivers */
 
 #define BSP_USING_GPIO
+#define BSP_USING_WDT
 #define BSP_USING_UART
 #define BSP_USING_UART0
 #define BSP_UART0_RX_BUFSIZE 256
