@@ -338,9 +338,9 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls>-Wno-license-management -Wuninitialized -Wall -Wmissing-declarations -Wpointer-arith -Waggregate-return -Wfloat-equal</MiscControls>
-              <Define>__CLK_TCK=RT_TICK_PER_SECOND, __STDC_LIMIT_MACROS, RT_USING_LIBC, __RTTHREAD__, RT_USING_ARMLIBC</Define>
+              <Define>RT_USING_ARMLIBC, __RTTHREAD__, RT_USING_LIBC, __STDC_LIMIT_MACROS, __CLK_TCK=RT_TICK_PER_SECOND</Define>
               <Undefine></Undefine>
-              <IncludePath>board\ports;..\..\..\components\libc\compilers\common\extension\fcntl\octal;..\..\..\components\libc\posix\io\poll;..\..\..\components\libc\posix\ipc;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\finsh;..\..\..\components\drivers\smp;..\..\..\libcpu\arm\common;..\..\..\components\libc\compilers\common\include;board;..\..\..\components\libc\posix\io\eventfd;..\..\..\components\drivers\include;..\libraries\HAL_Drivers\config;..\..\..\libcpu\arm\cortex-m4;..\libraries\HAL_Drivers;.;..\..\..\include;..\..\..\components\libc\compilers\common\extension;..\..\..\components\libc\posix\io\epoll;..\..\..\components\drivers\include</IncludePath>
+              <IncludePath>..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\libc\posix\io\poll;..\..\..\components\libc\compilers\common\include;board\ports;..\..\..\components\libc\posix\ipc;.;..\..\..\components\libc\compilers\common\extension;..\..\..\components\libc\compilers\common\extension\fcntl\octal;..\libraries\HAL_Drivers;..\libraries\HAL_Drivers\config;..\..\..\include;..\..\..\components\drivers\include;..\..\..\components\libc\posix\io\eventfd;..\..\..\components\drivers\smp;..\..\..\components\finsh;..\..\..\components\drivers\include;..\..\..\components\libc\posix\io\epoll;packages\FlexibleButton-latest;..\..\..\libcpu\arm\common;board;..\..\..\libcpu\arm\cortex-m4</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -1298,6 +1298,21 @@
               <FileName>cmd.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\components\finsh\cmd.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>flex_button</GroupName>
+          <Files>
+            <File>
+              <FileName>flexible_button.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\FlexibleButton-latest\flexible_button.c</FilePath>
+            </File>
+            <File>
+              <FileName>demo_rtt_iotboard.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\FlexibleButton-latest\examples\demo_rtt_iotboard.c</FilePath>
             </File>
           </Files>
         </Group>

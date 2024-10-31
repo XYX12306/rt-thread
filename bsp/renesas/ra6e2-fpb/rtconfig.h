@@ -269,6 +269,9 @@
 /* entertainment: terminal games and other interesting software packages */
 
 /* end of entertainment: terminal games and other interesting software packages */
+#define PKG_USING_FLEXIBLE_BUTTON
+#define PKG_USING_FLEXIBLE_BUTTON_DEMO
+#define PKG_USING_FLEXIBLE_BUTTON_LATEST
 /* end of miscellaneous packages */
 
 /* Arduino libraries */
