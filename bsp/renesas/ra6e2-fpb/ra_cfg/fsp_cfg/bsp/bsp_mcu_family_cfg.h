@@ -166,11 +166,6 @@ extern "C" {
 #endif
 #endif
 
-            /* Security attribution for Battery Backup registers. */
-#ifndef BSP_TZ_CFG_BBFSAR
-#define BSP_TZ_CFG_BBFSAR (0x00FFFFFF)
-#endif
-
             /* Security attribution for registers for IRQ channels. */
 #ifndef BSP_TZ_CFG_ICUSARA
 #define BSP_TZ_CFG_ICUSARA (\
