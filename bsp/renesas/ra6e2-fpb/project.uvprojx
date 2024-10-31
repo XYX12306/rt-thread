@@ -340,7 +340,7 @@
               <MiscControls>-Wno-license-management -Wuninitialized -Wall -Wmissing-declarations -Wpointer-arith -Waggregate-return -Wfloat-equal</MiscControls>
               <Define>RT_USING_ARMLIBC, __RTTHREAD__, RT_USING_LIBC, __CLK_TCK=RT_TICK_PER_SECOND, __STDC_LIMIT_MACROS</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\..\components\libc\posix\io\poll;..\..\..\components\drivers\include;..\..\..\include;..\..\..\components\drivers\smp;..\..\..\libcpu\arm\cortex-m4;..\..\..\libcpu\arm\common;..\..\..\components\libc\posix\io\eventfd;..\..\..\components\libc\posix\ipc;..\..\..\components\libc\compilers\common\extension;board\ports;..\libraries\HAL_Drivers\config;.;..\..\..\components\libc\compilers\common\include;..\..\..\components\libc\compilers\common\extension\fcntl\octal;board;..\..\..\components\libc\posix\io\epoll;..\..\..\components\finsh;..\..\..\components\drivers\include;..\libraries\HAL_Drivers;..\..\..\components\drivers\include;..\..\..\components\drivers\include</IncludePath>
+              <IncludePath>..\..\..\components\libc\posix\ipc;..\..\..\components\finsh;..\..\..\libcpu\arm\cortex-m4;..\libraries\HAL_Drivers;..\..\..\libcpu\arm\common;..\..\..\components\libc\posix\io\poll;board\ports;..\..\..\include;..\..\..\components\libc\compilers\common\extension\fcntl\octal;.;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\libc\posix\io\epoll;..\..\..\components\libc\posix\io\eventfd;packages\FlexibleButton-latest;..\..\..\components\libc\compilers\common\include;..\..\..\components\drivers\smp;..\libraries\HAL_Drivers\config;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\libc\compilers\common\extension;board</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -1285,11 +1285,6 @@
               <FilePath>..\..\..\components\finsh\msh.c</FilePath>
             </File>
             <File>
-              <FileName>msh_parse.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\finsh\msh_parse.c</FilePath>
-            </File>
-            <File>
               <FileName>shell.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\components\finsh\shell.c</FilePath>
@@ -1298,6 +1293,26 @@
               <FileName>cmd.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\components\finsh\cmd.c</FilePath>
+            </File>
+            <File>
+              <FileName>msh_parse.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\finsh\msh_parse.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>flex_button</GroupName>
+          <Files>
+            <File>
+              <FileName>flexible_button.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\FlexibleButton-latest\flexible_button.c</FilePath>
+            </File>
+            <File>
+              <FileName>demo_rtt_iotboard.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\FlexibleButton-latest\examples\demo_rtt_iotboard.c</FilePath>
             </File>
           </Files>
         </Group>
