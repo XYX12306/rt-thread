@@ -3,3 +3,7 @@
 /Objects
 ra_cfg.txt
 
+*.api_xml
+*.via
+*.uvguix.*
+JLink*.*
