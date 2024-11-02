@@ -9,6 +9,17 @@ menu "Hardware Drivers Config"
 
     menu "Onboard Peripheral Drivers"
 
+        config BSP_USING_ARDUINO
+            bool "Compatible with Arduino Ecosystem (RTduino)"
+            select PKG_USING_RTDUINO
+            select BSP_USING_UART0
+            select BSP_USING_GPIO
+            select BSP_USING_SOFT_SPI
+            select BSP_USING_SOFT_SPI1
+            select RTDUINO_USING_WIRE
+            select RTDUINO_USING_SPI
+            imply RTDUINO_USING_SERVO
+            default n
     endmenu
 
     menu "On-chip Peripheral Drivers"
