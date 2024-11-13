@@ -54,11 +54,13 @@
             <slot name="P500" secure="true"/>
         </peripheral>
         <peripheral name="SCI0" group="SCI" security="s"/>
+        <peripheral name="RTC" security="s"/>
         <peripheral name="ICU">
             <slot name="IRQ0" secure="true"/>
             <slot name="IRQ1" secure="true"/>
             <slot name="IRQ2" secure="true"/>
             <slot name="IRQ3" secure="true"/>
+            <slot name="IRQ4" secure="true"/>
         </peripheral>
     </partition>
 </azone>

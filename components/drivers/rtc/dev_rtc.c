@@ -135,6 +135,46 @@ rt_err_t rt_hw_rtc_register(rt_rtc_dev_t  *rtc,
 }
 
 /**
+ * Refresh system date and time.
+ *
+ * @param NULL.
+ *
+ * @return rt_err_t if set success, return RT_EOK.
+ */
+rt_err_t refresh_date(void)
+{
+    time_t now, old_timestamp = 0;
+    struct tm tm_new = {0};
+    rt_err_t ret = -RT_ERROR;
+
+    if (_rtc_device == RT_NULL)
+    {
+        _rtc_device = rt_device_find("rtc");
+        if (_rtc_device == RT_NULL)
+        {
+            return -RT_ERROR;
+        }
+    }
+
+    /* get current time */
+    ret = rt_device_control(_rtc_device, RT_DEVICE_CTRL_RTC_GET_TIME, &old_timestamp);
+    if (ret != RT_EOK)
+    {
+        return ret;
+    }
+
+    /* converts calendar time into local time. */
+    localtime_r(&old_timestamp, &tm_new);
+
+    /* converts the local time into the calendar time. */
+    now = mktime(&tm_new);
+
+    /* update to RTC device. */
+    ret = rt_device_control(_rtc_device, RT_DEVICE_CTRL_RTC_SET_TIME, &now);
+    return ret;
+}
+
+/**
  * Set system date(time not modify, local timezone).
  *
  * @param rt_uint32_t year  e.g: 2012.

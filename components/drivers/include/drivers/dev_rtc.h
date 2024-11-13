@@ -145,6 +145,14 @@ rt_err_t rt_hw_rtc_register(rt_rtc_dev_t  *rtc,
                             void          *data);
 
 /**
+ * @brief refresh date
+ *
+ * @param NULL
+ * @return rt_err_t error code
+ */
+rt_err_t refresh_date(void);
+
+/**
  * @brief set date 
  * 
  * @param year year
