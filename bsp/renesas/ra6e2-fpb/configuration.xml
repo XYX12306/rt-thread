@@ -368,8 +368,9 @@
       <configSetting altId="p102.sci0.sck0" configurationId="p102"/>
       <configSetting altId="p102.gpio_speed.gpio_speed_h" configurationId="p102.gpio_drivecapacity"/>
       <configSetting altId="p102.gpio_mode.gpio_mode_peripheral" configurationId="p102.gpio_mode"/>
-      <configSetting altId="p105.input" configurationId="p105"/>
-      <configSetting altId="p105.gpio_mode.gpio_mode_in" configurationId="p105.gpio_mode"/>
+      <configSetting altId="p105.output.high" configurationId="p105"/>
+      <configSetting altId="p105.gpio_speed.gpio_speed_m" configurationId="p105.gpio_drivecapacity"/>
+      <configSetting altId="p105.gpio_mode.gpio_mode_out.high" configurationId="p105.gpio_mode"/>
       <configSetting altId="p106.input" configurationId="p106"/>
       <configSetting altId="p106.gpio_mode.gpio_mode_in" configurationId="p106.gpio_mode"/>
       <configSetting altId="p107.input" configurationId="p107"/>
@@ -413,8 +414,9 @@
       <configSetting altId="p401.gpio_mode.gpio_mode_out.high" configurationId="p401.gpio_mode"/>
       <configSetting altId="p402.input" configurationId="p402"/>
       <configSetting altId="p402.gpio_mode.gpio_mode_in" configurationId="p402.gpio_mode"/>
-      <configSetting altId="p403.input" configurationId="p403"/>
-      <configSetting altId="p403.gpio_mode.gpio_mode_in" configurationId="p403.gpio_mode"/>
+      <configSetting altId="p403.output.high" configurationId="p403"/>
+      <configSetting altId="p403.gpio_speed.gpio_speed_m" configurationId="p403.gpio_drivecapacity"/>
+      <configSetting altId="p403.gpio_mode.gpio_mode_out.high" configurationId="p403.gpio_mode"/>
       <configSetting altId="p407.input" configurationId="p407"/>
       <configSetting altId="p407.gpio_mode.gpio_mode_in" configurationId="p407.gpio_mode"/>
       <configSetting altId="p408.input" configurationId="p408"/>

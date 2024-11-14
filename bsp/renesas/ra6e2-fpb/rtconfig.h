@@ -91,6 +91,15 @@
 #define RT_USING_SERIAL
 #define RT_USING_SERIAL_V2
 #define RT_SERIAL_USING_DMA
+#define RT_USING_I2C
+#define RT_USING_I2C_BITOPS
+#define RT_USING_SOFT_I2C
+#define RT_USING_SOFT_I2C1
+#define RT_SOFT_I2C1_SCL_PIN 1027
+#define RT_SOFT_I2C1_SDA_PIN 261
+#define RT_SOFT_I2C1_BUS_NAME "i2c1"
+#define RT_SOFT_I2C1_TIMING_DELAY 10
+#define RT_SOFT_I2C1_TIMING_TIMEOUT 10
 #define RT_USING_RTC
 #define RT_USING_WDT
 #define RT_USING_PIN
@@ -248,6 +257,11 @@
 /* touch drivers */
 
 /* end of touch drivers */
+#define PKG_USING_SSD1306
+#define PKG_USING_SSD1306_I2C_ADDRESS 0x3C
+#define PKG_USING_SSD1306_I2C_BUS_NAME "i2c1"
+#define PKG_USING_SSD1306_SAMPLE
+#define PKG_USING_SSD1306_LATEST_VERSION
 /* end of peripheral libraries and drivers */
 
 /* AI packages */
