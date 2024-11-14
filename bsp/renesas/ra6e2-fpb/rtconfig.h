@@ -101,6 +101,10 @@
 #define RT_SOFT_I2C1_TIMING_DELAY 10
 #define RT_SOFT_I2C1_TIMING_TIMEOUT 10
 #define RT_USING_RTC
+#define RT_USING_ALARM
+#define RT_ALARM_STACK_SIZE 2048
+#define RT_ALARM_TIMESLICE 5
+#define RT_ALARM_PRIORITY 2
 #define RT_USING_WDT
 #define RT_USING_PIN
 /* end of Device Drivers */
