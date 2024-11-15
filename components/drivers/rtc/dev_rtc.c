@@ -21,6 +21,8 @@
 
 #ifdef RT_USING_RTC
 
+#define _ISDIGIT(c)  ((unsigned)((c) - '0') < 10)
+
 static rt_device_t _rtc_device;
 /*
  * This function initializes rtc_core
@@ -318,6 +320,15 @@ rt_err_t get_timestamp(time_t *timestamp)
     return rt_device_control(_rtc_device, RT_DEVICE_CTRL_RTC_GET_TIME, timestamp);
 }
 
+int skip_atoi(const char **s)
+{
+    int i = 0;
+    while (_ISDIGIT(**s))
+        i = i * 10 + *((*s)++) - '0';
+
+    return i;
+}
+
 #ifdef RT_USING_FINSH
 #include <finsh.h>
 /**
@@ -353,13 +364,19 @@ static void date(int argc, char **argv)
         struct tm tm_new = {0};
         time_t old = (time_t)0;
         rt_err_t err;
+        const char *temp = argv[1];
 
-        tm_new.tm_year = atoi(argv[1]) - 1900;
-        tm_new.tm_mon = atoi(argv[2]) - 1; /* .tm_min's range is [0-11] */
-        tm_new.tm_mday = atoi(argv[3]);
-        tm_new.tm_hour = atoi(argv[4]);
-        tm_new.tm_min = atoi(argv[5]);
-        tm_new.tm_sec = atoi(argv[6]);
+        tm_new.tm_year = skip_atoi(&temp) - 1900;
+        temp = argv[2];
+        tm_new.tm_mon = skip_atoi(&temp) - 1; /* .tm_min's range is [0-11] */
+        temp = argv[3];
+        tm_new.tm_mday = skip_atoi(&temp);
+        temp = argv[4];
+        tm_new.tm_hour = skip_atoi(&temp);
+        temp = argv[5];
+        tm_new.tm_min = skip_atoi(&temp);
+        temp = argv[6];
+        tm_new.tm_sec = skip_atoi(&temp);
         if (tm_new.tm_year <= 0)
         {
             rt_kprintf("year is out of range [1900-]\n");
