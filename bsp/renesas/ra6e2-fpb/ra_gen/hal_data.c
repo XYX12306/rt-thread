@@ -16,8 +16,8 @@ const rtc_cfg_t g_rtc_cfg =
     .p_callback              = rtc_callback,
     .p_context               = NULL,
     .p_extend                = NULL,
-    .alarm_ipl               = (BSP_IRQ_DISABLED),
-    .periodic_ipl            = (BSP_IRQ_DISABLED),
+    .alarm_ipl               = (2),
+    .periodic_ipl            = (10),
     .carry_ipl               = (12),
 #if defined(VECTOR_NUMBER_RTC_ALARM)
     .alarm_irq               = VECTOR_NUMBER_RTC_ALARM,

@@ -13,6 +13,7 @@
 #include "board.h"
 #include <sys/time.h>
 #include "hal_data.h"
+#include <drv_config.h>
 
 #ifdef BSP_USING_ONCHIP_RTC
 
@@ -180,6 +181,169 @@ static rt_err_t ra_set_alarm(struct rt_rtc_wkalarm *alarm)
 }
 #endif /* RT_USING_ALARM */
 
+rt_err_t ra_get_periodic(uint32_t *rate)
+{
+    rt_err_t result = RT_EOK;
+
+    if (rate == NULL)
+    {
+        result = -RT_ERROR;
+        return result;
+    }
+
+    *rate = R_RTC->RCR1_b.PES;
+
+    return result;
+}
+
+rt_err_t ra_set_periodic(rtc_periodic_irq_select_t *rate)
+{
+    rt_err_t result = RT_EOK;
+
+    if (rate == NULL)
+    {
+        result = -RT_ERROR;
+        return result;
+    }
+
+    if (R_RTC_PeriodicIrqRateSet(&g_rtc_ctrl, *rate) != RT_EOK)
+    {
+        LOG_E("set rtc periodic failed.");
+        result = -RT_ERROR;
+    }
+
+    return result;
+}
+
+#define EVENT_FLAG_RTC_PERIODIC (1 << 3)
+static struct rt_rtc_periodic_container _container;
+
+static void rtc_periodic_update(rt_uint32_t event)
+{
+    struct rt_rtc_periodic *rtc_periodic;
+    time_t timestamp = (time_t)0;
+    struct tm now;
+    rt_list_t *next;
+
+    rt_mutex_take(&_container.mutex, RT_WAITING_FOREVER);
+    if (!rt_list_isempty(&_container.head))
+    {
+        /* get time of now */
+        get_timestamp(&timestamp);
+        gmtime_r(&timestamp, &now);
+
+        for (next = _container.head.next; next != &_container.head; next = next->next)
+        {
+            rtc_periodic = rt_list_entry(next, struct rt_rtc_periodic, list);
+            /* check the overtime alarm */
+            timestamp = (time_t)0;
+            get_timestamp(&timestamp);
+            rtc_periodic->callback(rtc_periodic, timestamp);
+        }
+    }
+    rt_mutex_release(&_container.mutex);
+}
+
+/** \brief send a rtc periodic event
+ *
+ * \param dev pointer to RTC device(currently unused,you can ignore it)
+ * \param event RTC periodic event
+ * \return none
+ */
+static void rt_rtc_periodic_update(rt_device_t dev, rt_uint32_t event)
+{
+    rt_event_send(&_container.event, event);
+}
+
+/** \brief rtc periodic service thread entry
+ *
+ */
+static void rt_rtc_periodic_thread_init(void *param)
+{
+    rt_uint32_t recv;
+
+    while (1)
+    {
+        if (rt_event_recv(&_container.event, EVENT_FLAG_RTC_PERIODIC,
+                          RT_EVENT_FLAG_OR | RT_EVENT_FLAG_CLEAR,
+                          RT_WAITING_FOREVER, &recv) == RT_EOK)
+        {
+            rtc_periodic_update(recv);
+        }
+    }
+}
+
+int rt_rtc_periodic_system_init(void)
+{
+    rt_thread_t tid;
+
+    rt_list_init(&_container.head);
+    rt_event_init(&_container.event, "rtc_periodic", RT_IPC_FLAG_FIFO);
+    rt_mutex_init(&_container.mutex, "rtc_periodic", RT_IPC_FLAG_PRIO);
+
+    tid = rt_thread_create("rtc_periodic",
+                           rt_rtc_periodic_thread_init, RT_NULL,
+                           2048,
+                           2,
+                           5);
+    if (tid != RT_NULL)
+        rt_thread_startup(tid);
+
+    return 0;
+}
+
+INIT_PREV_EXPORT(rt_rtc_periodic_system_init);
+
+/** \brief create a rtc periodic
+ *
+ * \param flag Periodic Interrupt select e.g:
+ * \param setup pointer to setup infomation
+ */
+rt_rtc_periodic_t rt_rtc_periodic_create(rt_rtc_periodic_callback_t callback, struct rt_rtc_periodic_setup *setup)
+{
+    struct rt_rtc_periodic *rtc_periodic;
+
+    if (setup == RT_NULL)
+        return (RT_NULL);
+
+    rtc_periodic = rt_malloc(sizeof(struct rt_alarm));
+    if (rtc_periodic == RT_NULL)
+        return (RT_NULL);
+
+    rt_list_init(&rtc_periodic->list);
+
+    rtc_periodic->flag = setup->flag;
+    rtc_periodic->callback = callback;
+		ra_set_periodic(&(rtc_periodic->flag));
+    rt_mutex_take(&_container.mutex, RT_WAITING_FOREVER);
+    rt_list_insert_after(&_container.head, &rtc_periodic->list);
+    rt_mutex_release(&_container.mutex);
+
+    return (rtc_periodic);
+}
+
+/** \brief delete a rtc periodic
+ *
+ * \param rtc periodic pointer to rtc periodic
+ * \return RT_EOK
+ */
+rt_err_t rt_rtc_periodic_delete(rt_rtc_periodic_t rtc_periodic)
+{
+    rt_err_t ret = RT_EOK;
+
+    if (rtc_periodic == RT_NULL)
+        return -RT_ERROR;
+    rt_mutex_take(&_container.mutex, RT_WAITING_FOREVER);
+    /* stop the alarm */
+    R_RTC->RCR1_b.PIE = 0;
+    rt_list_remove(&rtc_periodic->list);
+    rt_free(rtc_periodic);
+
+    rt_mutex_release(&_container.mutex);
+
+    return (ret);
+}
+
 void rtc_callback(rtc_callback_args_t *p_args)
 {
 #ifdef RT_USING_ALARM
@@ -189,6 +353,11 @@ void rtc_callback(rtc_callback_args_t *p_args)
         rt_alarm_update(ra_device, 1);
     }
 #endif
+    static rt_device_t ra_device_rtc_periodic;
+    if (RTC_EVENT_PERIODIC_IRQ == p_args->event)
+    {
+        rt_rtc_periodic_update(ra_device_rtc_periodic, EVENT_FLAG_RTC_PERIODIC);
+    }
 }
 
 static const struct rt_rtc_ops ra_rtc_ops =
@@ -200,6 +369,8 @@ static const struct rt_rtc_ops ra_rtc_ops =
     .set_alarm = ra_set_alarm,
     .get_alarm = ra_get_alarm,
 #endif
+    .get_periodic = ra_get_periodic,
+    .set_periodic = ra_set_periodic,
 };
 
 static rt_rtc_dev_t ra_rtc_dev;

@@ -83,6 +83,12 @@ static rt_err_t rt_rtc_control(struct rt_device *dev, int cmd, void *args)
         case RT_DEVICE_CTRL_RTC_SET_ALARM:
             ret = TRY_DO_RTC_FUNC(rtc_device, set_alarm, args);
             break;
+        case RT_DEVICE_CTRL_RTC_GET_PERIODIC:
+            ret = TRY_DO_RTC_FUNC(rtc_device, get_periodic, args);
+            break;
+        case RT_DEVICE_CTRL_RTC_SET_PERIODIC:
+            ret = TRY_DO_RTC_FUNC(rtc_device, set_periodic, args);
+            break;
         default:
             break;
     }

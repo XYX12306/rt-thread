@@ -93,6 +93,8 @@ extern "C" {
 #define RT_DEVICE_CTRL_RTC_GET_TIMESPEC (RT_DEVICE_CTRL_BASE(RTC) + 0x07)              /**< get timespec for clock_gettime */
 #define RT_DEVICE_CTRL_RTC_SET_TIMESPEC (RT_DEVICE_CTRL_BASE(RTC) + 0x08)              /**< set timespec for clock_settime */
 #define RT_DEVICE_CTRL_RTC_GET_TIMERES  (RT_DEVICE_CTRL_BASE(RTC) + 0x09)              /**< get resolution for clock_getres */
+#define RT_DEVICE_CTRL_RTC_GET_PERIODIC (RT_DEVICE_CTRL_BASE(RTC) + 0x0A)              /**< get periodic */
+#define RT_DEVICE_CTRL_RTC_SET_PERIODIC (RT_DEVICE_CTRL_BASE(RTC) + 0x0B)              /**< set periodic */
 
 /**
  * @brief RTC alarm structure
@@ -119,6 +121,8 @@ struct rt_rtc_ops
     rt_err_t (*set_alarm)(struct rt_rtc_wkalarm *alarm);
     rt_err_t (*get_timeval)(struct timeval *tv);
     rt_err_t (*set_timeval)(struct timeval *tv);
+    rt_err_t (*get_periodic)(rt_uint32_t *rate);
+    rt_err_t (*set_periodic)(rt_uint32_t *rate);
 };
 
 /**

@@ -177,6 +177,11 @@ extern "C"
 #ifdef BSP_USING_CAN
 #include "ra6e2/can_config.h"
 #endif
+
+#ifdef BSP_USING_ONCHIP_RTC
+#include "ra6e2/rtc_config.h"
+#endif
+
 #endif /* SOC_SERIES_R7FA6E2 */
 
 #ifdef __cplusplus
