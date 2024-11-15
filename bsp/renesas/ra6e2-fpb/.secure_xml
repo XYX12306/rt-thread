@@ -71,7 +71,7 @@
       <configSetting altId="p008.input" configurationId="p008"/>
       <configSetting altId="p014.input" configurationId="p014"/>
       <configSetting altId="p015.input" configurationId="p015"/>
-      <configSetting altId="p105.output.high" configurationId="p105"/>
+      <configSetting altId="p105.input" configurationId="p105"/>
       <configSetting altId="p106.input" configurationId="p106"/>
       <configSetting altId="p107.input" configurationId="p107"/>
       <configSetting altId="p111.input" configurationId="p111"/>
@@ -84,7 +84,7 @@
       <configSetting altId="p400.output.high" configurationId="p400"/>
       <configSetting altId="p401.output.high" configurationId="p401"/>
       <configSetting altId="p402.input" configurationId="p402"/>
-      <configSetting altId="p403.output.high" configurationId="p403"/>
+      <configSetting altId="p403.input" configurationId="p403"/>
       <configSetting altId="p407.input" configurationId="p407"/>
       <configSetting altId="p408.input" configurationId="p408"/>
       <configSetting altId="p409.input" configurationId="p409"/>
