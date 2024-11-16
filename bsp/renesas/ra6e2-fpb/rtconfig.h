@@ -106,6 +106,8 @@
 #define RT_ALARM_TIMESLICE 5
 #define RT_ALARM_PRIORITY 2
 #define RT_USING_WDT
+#define RT_USING_SENSOR
+#define RT_USING_SENSOR_CMD
 #define RT_USING_PIN
 /* end of Device Drivers */
 
@@ -256,6 +258,9 @@
 
 /* sensors drivers */
 
+#define PKG_USING_DHT11
+#define PKG_USING_DHT11_SAMPLE
+#define PKG_USING_DHT11_LATEST_VERSION
 /* end of sensors drivers */
 
 /* touch drivers */

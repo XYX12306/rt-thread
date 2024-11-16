@@ -10,7 +10,6 @@
       <TargetName>Target 1</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>6220000::V6.22::ARMCLANG</pCCUsed>
       <uAC6>1</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -338,9 +337,9 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls>-Wno-license-management -Wuninitialized -Wall -Wmissing-declarations -Wpointer-arith -Waggregate-return -Wfloat-equal</MiscControls>
-              <Define>RT_USING_LIBC, RT_USING_ARMLIBC, __CLK_TCK=RT_TICK_PER_SECOND, __STDC_LIMIT_MACROS, __RTTHREAD__</Define>
+              <Define>__STDC_LIMIT_MACROS, RT_USING_ARMLIBC, __CLK_TCK=RT_TICK_PER_SECOND, __RTTHREAD__, RT_USING_LIBC</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\..\components\drivers\include;board;..\..\..\components\drivers\include;..\..\..\components\drivers\smp;..\..\..\components\drivers\include;..\..\..\components\drivers\include;packages\FlexibleButton-latest;..\..\..\components\drivers\include;..\libraries\HAL_Drivers;..\..\..\components\libc\posix\io\epoll;..\..\..\components\drivers\include;..\..\..\components\finsh;..\..\..\components\libc\compilers\common\extension\fcntl\octal;..\libraries\HAL_Drivers\config;..\..\..\components\libc\compilers\common\extension;..\..\..\components\libc\posix\io\eventfd;..\..\..\libcpu\arm\common;..\..\..\include;packages\ssd1306-latest\inc;..\..\..\components\libc\compilers\common\include;..\..\..\components\drivers\include;board\ports;.;..\..\..\components\libc\posix\ipc;..\..\..\components\libc\posix\io\poll;packages\peripheral_samples-latest;..\..\..\libcpu\arm\cortex-m4</IncludePath>
+              <IncludePath>..\..\..\components\libc\posix\io\eventfd;packages\FlexibleButton-latest;..\..\..\components\drivers\include;..\..\..\libcpu\arm\common;..\..\..\components\finsh;.;packages\peripheral_samples-latest;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\libcpu\arm\cortex-m4;..\..\..\components\drivers\smp;..\..\..\components\drivers\include;board\ports;packages\ssd1306-latest\inc;..\..\..\components\libc\compilers\common\include;..\..\..\components\libc\posix\io\poll;..\..\..\components\libc\compilers\common\extension\fcntl\octal;..\..\..\components\libc\posix\io\epoll;..\..\..\include;board;..\..\..\components\libc\compilers\common\extension;..\..\..\components\drivers\include;..\libraries\HAL_Drivers;packages\dht11-latest;..\..\..\components\libc\posix\ipc;..\libraries\HAL_Drivers\config</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -1382,6 +1381,118 @@
               </FileOption>
             </File>
             <File>
+              <FileName>sensor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\drivers\sensor\v1\sensor.c</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>2</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>1</IncludeInBuild>
+                  <AlwaysBuild>0</AlwaysBuild>
+                  <GenerateAssemblyFile>0</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>0</AssembleAssemblyFile>
+                  <PublicsOnly>0</PublicsOnly>
+                  <StopOnExitCode>3</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                  <ComprImg>1</ComprImg>
+                </CommonProperty>
+                <FileArmAds>
+                  <Cads>
+                    <interw>2</interw>
+                    <Optim>0</Optim>
+                    <oTime>2</oTime>
+                    <SplitLS>2</SplitLS>
+                    <OneElfS>2</OneElfS>
+                    <Strict>2</Strict>
+                    <EnumInt>2</EnumInt>
+                    <PlainCh>2</PlainCh>
+                    <Ropi>2</Ropi>
+                    <Rwpi>2</Rwpi>
+                    <wLevel>0</wLevel>
+                    <uThumb>2</uThumb>
+                    <uSurpInc>2</uSurpInc>
+                    <uC99>2</uC99>
+                    <uGnu>2</uGnu>
+                    <useXO>2</useXO>
+                    <v6Lang>0</v6Lang>
+                    <v6LangP>0</v6LangP>
+                    <vShortEn>2</vShortEn>
+                    <vShortWch>2</vShortWch>
+                    <v6Lto>2</v6Lto>
+                    <v6WtE>2</v6WtE>
+                    <v6Rtti>2</v6Rtti>
+                    <VariousControls>
+                      <MiscControls> </MiscControls>
+                      <Define>__RT_IPC_SOURCE__</Define>
+                      <Undefine> </Undefine>
+                      <IncludePath></IncludePath>
+                    </VariousControls>
+                  </Cads>
+                </FileArmAds>
+              </FileOption>
+            </File>
+            <File>
+              <FileName>sensor_cmd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\drivers\sensor\v1\sensor_cmd.c</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>2</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>1</IncludeInBuild>
+                  <AlwaysBuild>0</AlwaysBuild>
+                  <GenerateAssemblyFile>0</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>0</AssembleAssemblyFile>
+                  <PublicsOnly>0</PublicsOnly>
+                  <StopOnExitCode>3</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                  <ComprImg>1</ComprImg>
+                </CommonProperty>
+                <FileArmAds>
+                  <Cads>
+                    <interw>2</interw>
+                    <Optim>0</Optim>
+                    <oTime>2</oTime>
+                    <SplitLS>2</SplitLS>
+                    <OneElfS>2</OneElfS>
+                    <Strict>2</Strict>
+                    <EnumInt>2</EnumInt>
+                    <PlainCh>2</PlainCh>
+                    <Ropi>2</Ropi>
+                    <Rwpi>2</Rwpi>
+                    <wLevel>0</wLevel>
+                    <uThumb>2</uThumb>
+                    <uSurpInc>2</uSurpInc>
+                    <uC99>2</uC99>
+                    <uGnu>2</uGnu>
+                    <useXO>2</useXO>
+                    <v6Lang>0</v6Lang>
+                    <v6LangP>0</v6LangP>
+                    <vShortEn>2</vShortEn>
+                    <vShortWch>2</vShortWch>
+                    <v6Lto>2</v6Lto>
+                    <v6WtE>2</v6WtE>
+                    <v6Rtti>2</v6Rtti>
+                    <VariousControls>
+                      <MiscControls> </MiscControls>
+                      <Define>__RT_IPC_SOURCE__</Define>
+                      <Undefine> </Undefine>
+                      <IncludePath></IncludePath>
+                    </VariousControls>
+                  </Cads>
+                </FileArmAds>
+              </FileOption>
+            </File>
+            <File>
               <FileName>dev_serial_v2.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\components\drivers\serial\dev_serial_v2.c</FilePath>
@@ -1492,6 +1603,21 @@
                   </Cads>
                 </FileArmAds>
               </FileOption>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>dht11</GroupName>
+          <Files>
+            <File>
+              <FileName>dht11_sample.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\dht11-latest\dht11_sample.c</FilePath>
+            </File>
+            <File>
+              <FileName>sensor_dallas_dht11.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\dht11-latest\sensor_dallas_dht11.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -1784,6 +1910,11 @@
           <GroupName>Finsh</GroupName>
           <Files>
             <File>
+              <FileName>cmd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\finsh\cmd.c</FilePath>
+            </File>
+            <File>
               <FileName>shell.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\components\finsh\shell.c</FilePath>
@@ -1792,11 +1923,6 @@
               <FileName>msh.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\components\finsh\msh.c</FilePath>
-            </File>
-            <File>
-              <FileName>cmd.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\finsh\cmd.c</FilePath>
             </File>
             <File>
               <FileName>msh_parse.c</FileName>
@@ -2826,6 +2952,11 @@
           <GroupName>ssd1306</GroupName>
           <Files>
             <File>
+              <FileName>ssd1306_tests.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\ssd1306-latest\examples\ssd1306_tests.c</FilePath>
+            </File>
+            <File>
               <FileName>ssd1306_fonts.c</FileName>
               <FileType>1</FileType>
               <FilePath>packages\ssd1306-latest\src\ssd1306_fonts.c</FilePath>
@@ -2834,11 +2965,6 @@
               <FileName>ssd1306.c</FileName>
               <FileType>1</FileType>
               <FilePath>packages\ssd1306-latest\src\ssd1306.c</FilePath>
-            </File>
-            <File>
-              <FileName>ssd1306_tests.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\ssd1306-latest\examples\ssd1306_tests.c</FilePath>
             </File>
           </Files>
         </Group>

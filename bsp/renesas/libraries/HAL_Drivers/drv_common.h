@@ -29,6 +29,8 @@ void _Error_Handler(char *s, int num);
 
 #define DMA_NOT_AVAILABLE ((DMA_INSTANCE_TYPE *)0xFFFFFFFFU)
 
+void rt_hw_us_delay(rt_uint32_t us);
+
 #ifdef __cplusplus
 }
 #endif
