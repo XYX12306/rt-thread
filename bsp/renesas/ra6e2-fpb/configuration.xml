@@ -353,6 +353,7 @@
       <configSetting altId="p006.gpio_mode.gpio_mode_in" configurationId="p006.gpio_mode"/>
       <configSetting altId="p008.input" configurationId="p008"/>
       <configSetting altId="p008.gpio_mode.gpio_mode_in" configurationId="p008.gpio_mode"/>
+      <configSetting altId="p008.gpio_pupd.gpio_pupd_ip_up" configurationId="p008.gpio_pupd"/>
       <configSetting altId="p013.adc0.an011" configurationId="p013"/>
       <configSetting altId="p013.gpio_mode.gpio_mode_an" configurationId="p013.gpio_mode"/>
       <configSetting altId="p014.input" configurationId="p014"/>
@@ -388,6 +389,7 @@
       <configSetting altId="p111.gpio_mode.gpio_mode_in" configurationId="p111.gpio_mode"/>
       <configSetting altId="p113.input" configurationId="p113"/>
       <configSetting altId="p113.gpio_mode.gpio_mode_in" configurationId="p113.gpio_mode"/>
+      <configSetting altId="p113.gpio_pupd.gpio_pupd_ip_up" configurationId="p113.gpio_pupd"/>
       <configSetting altId="p205.input" configurationId="p205"/>
       <configSetting altId="p205.gpio_mode.gpio_mode_in" configurationId="p205.gpio_mode"/>
       <configSetting altId="p206.output.low" configurationId="p206"/>
@@ -421,8 +423,10 @@
       <configSetting altId="p407.gpio_mode.gpio_mode_in" configurationId="p407.gpio_mode"/>
       <configSetting altId="p408.input" configurationId="p408"/>
       <configSetting altId="p408.gpio_mode.gpio_mode_in" configurationId="p408.gpio_mode"/>
+      <configSetting altId="p408.gpio_pupd.gpio_pupd_ip_up" configurationId="p408.gpio_pupd"/>
       <configSetting altId="p409.input" configurationId="p409"/>
       <configSetting altId="p409.gpio_mode.gpio_mode_in" configurationId="p409.gpio_mode"/>
+      <configSetting altId="p409.gpio_pupd.gpio_pupd_ip_up" configurationId="p409.gpio_pupd"/>
       <configSetting altId="p410.sci0.rxd0" configurationId="p410"/>
       <configSetting altId="p410.gpio_speed.gpio_speed_h" configurationId="p410.gpio_drivecapacity"/>
       <configSetting altId="p410.gpio_mode.gpio_mode_peripheral" configurationId="p410.gpio_mode"/>
@@ -431,6 +435,7 @@
       <configSetting altId="p411.gpio_mode.gpio_mode_peripheral" configurationId="p411.gpio_mode"/>
       <configSetting altId="p500.input" configurationId="p500"/>
       <configSetting altId="p500.gpio_mode.gpio_mode_in" configurationId="p500.gpio_mode"/>
+      <configSetting altId="p500.gpio_pupd.gpio_pupd_ip_up" configurationId="p500.gpio_pupd"/>
       <configSetting altId="sci0.mode.simplespi.b" configurationId="sci0.mode"/>
       <configSetting altId="sci0.pairing.b" configurationId="sci0.pairing"/>
       <configSetting altId="sci0.rxd0.p410" configurationId="sci0.rxd0"/>
