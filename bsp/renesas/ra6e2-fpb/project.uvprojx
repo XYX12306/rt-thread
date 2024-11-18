@@ -10,6 +10,7 @@
       <TargetName>Target 1</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
+      <pCCUsed>6220000::V6.22::ARMCLANG</pCCUsed>
       <uAC6>1</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -337,9 +338,9 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls>-Wno-license-management -Wuninitialized -Wall -Wmissing-declarations -Wpointer-arith -Waggregate-return -Wfloat-equal</MiscControls>
-              <Define>__STDC_LIMIT_MACROS, RT_USING_ARMLIBC, __CLK_TCK=RT_TICK_PER_SECOND, __RTTHREAD__, RT_USING_LIBC</Define>
+              <Define>RT_USING_LIBC, RT_USING_ARMLIBC, __CLK_TCK=RT_TICK_PER_SECOND, __STDC_LIMIT_MACROS, __RTTHREAD__</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\..\components\libc\posix\io\eventfd;packages\FlexibleButton-latest;..\..\..\components\drivers\include;..\..\..\libcpu\arm\common;..\..\..\components\finsh;.;packages\peripheral_samples-latest;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\libcpu\arm\cortex-m4;..\..\..\components\drivers\smp;..\..\..\components\drivers\include;board\ports;packages\ssd1306-latest\inc;..\..\..\components\libc\compilers\common\include;..\..\..\components\libc\posix\io\poll;..\..\..\components\libc\compilers\common\extension\fcntl\octal;..\..\..\components\libc\posix\io\epoll;..\..\..\include;board;..\..\..\components\libc\compilers\common\extension;..\..\..\components\drivers\include;..\libraries\HAL_Drivers;packages\dht11-latest;..\..\..\components\libc\posix\ipc;..\libraries\HAL_Drivers\config</IncludePath>
+              <IncludePath>packages\FlexibleButton-latest;..\..\..\libcpu\arm\common;..\libraries\HAL_Drivers\config;..\..\..\components\drivers\include;..\..\..\components\libc\posix\io\poll;..\..\..\components\drivers\smp;..\..\..\components\libc\compilers\common\extension;..\..\..\components\libc\posix\io\epoll;..\..\..\libcpu\arm\cortex-m4;..\..\..\components\libc\posix\io\eventfd;board\ports;..\..\..\components\drivers\include;..\libraries\HAL_Drivers;..\..\..\components\finsh;..\..\..\components\drivers\include;..\..\..\components\libc\compilers\common\include;packages\mpu6xxx-latest\inc;board;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\include;packages\peripheral_samples-latest;packages\ssd1306-latest\inc;.;..\..\..\components\libc\posix\ipc;..\..\..\components\libc\compilers\common\extension\fcntl\octal;..\..\..\components\drivers\include;packages\dht11-latest</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -1915,9 +1916,9 @@
               <FilePath>..\..\..\components\finsh\cmd.c</FilePath>
             </File>
             <File>
-              <FileName>shell.c</FileName>
+              <FileName>msh_parse.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\components\finsh\shell.c</FilePath>
+              <FilePath>..\..\..\components\finsh\msh_parse.c</FilePath>
             </File>
             <File>
               <FileName>msh.c</FileName>
@@ -1925,9 +1926,9 @@
               <FilePath>..\..\..\components\finsh\msh.c</FilePath>
             </File>
             <File>
-              <FileName>msh_parse.c</FileName>
+              <FileName>shell.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\components\finsh\msh_parse.c</FilePath>
+              <FilePath>..\..\..\components\finsh\shell.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -2934,23 +2935,48 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>peripheral-samples</GroupName>
+          <GroupName>mpu6xxx</GroupName>
           <Files>
             <File>
-              <FileName>rtc_sample.c</FileName>
+              <FileName>mpu6xxx.c</FileName>
               <FileType>1</FileType>
-              <FilePath>packages\peripheral_samples-latest\rtc_sample.c</FilePath>
+              <FilePath>packages\mpu6xxx-latest\src\mpu6xxx.c</FilePath>
             </File>
+            <File>
+              <FileName>mpu6xxx_sample.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\mpu6xxx-latest\samples\mpu6xxx_sample.c</FilePath>
+            </File>
+            <File>
+              <FileName>sensor_inven_mpu6xxx.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\mpu6xxx-latest\src\sensor_inven_mpu6xxx.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>peripheral-samples</GroupName>
+          <Files>
             <File>
               <FileName>iwdg_sample.c</FileName>
               <FileType>1</FileType>
               <FilePath>packages\peripheral_samples-latest\iwdg_sample.c</FilePath>
+            </File>
+            <File>
+              <FileName>rtc_sample.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\peripheral_samples-latest\rtc_sample.c</FilePath>
             </File>
           </Files>
         </Group>
         <Group>
           <GroupName>ssd1306</GroupName>
           <Files>
+            <File>
+              <FileName>ssd1306.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\ssd1306-latest\src\ssd1306.c</FilePath>
+            </File>
             <File>
               <FileName>ssd1306_tests.c</FileName>
               <FileType>1</FileType>
@@ -2960,11 +2986,6 @@
               <FileName>ssd1306_fonts.c</FileName>
               <FileType>1</FileType>
               <FilePath>packages\ssd1306-latest\src\ssd1306_fonts.c</FilePath>
-            </File>
-            <File>
-              <FileName>ssd1306.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\ssd1306-latest\src\ssd1306.c</FilePath>
             </File>
           </Files>
         </Group>
